@@ -14,7 +14,7 @@
       "registryType": "mcpb",
       "identifier": "https://github.com/EuroScrape-eu/euroscrape-mcp/releases/download/v0.1.2/euroscrape-mcp.mcpb",
       "version": "0.1.2",
-      "fileSha256": "94381af35dd15fabcf4c789532f9e86ef69c070fb6d9c20136c541d8a7a4c126",
+      "fileSha256": "4e08abf544f72658fe600548535b5031a70b0374452d50fc461a303d32d30628",
       "transport": {
         "type": "stdio"
       },

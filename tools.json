@@ -2,7 +2,7 @@
  {
   "name": "get_electricity_prices",
   "actor": "euroscrape/eu-electricity-prices",
-  "title": "EU Electricity Prices API: Day-Ahead Power Prices & Cheap Hours",
+  "title": "EU Electricity, Power & Energy Prices API: EPEX Day-Ahead",
   "description": "Day-ahead electricity prices for 40+ European bidding zones, hourly or 15-minute, with a summary per zone and day: cheapest window, minimum, maximum, average, negative-price hours. Without dates: today and tomorrow (tomorrow is published around 13:00 CET). Pay per result on your Apify account: run start $0.003, price row $0.0002.",
   "defaults": {},
   "inputSchema": {
@@ -42,8 +42,8 @@
  {
   "name": "search_flights",
   "actor": "euroscrape/google-flights-prices",
-  "title": "Google Flights Scraper: Cheapest Dates, Prices & Price History",
-  "description": "Flight prices from Google Flights for a route and one or several departure dates: airlines, times, stops, price, and the typical price range of the route. Use numberOfDates with cheapestOnly to find the cheapest day to fly. Pay per result on your Apify account: run start $0.003, flight delivered $0.002.",
+  "title": "Google Flights Search & Deals API 💰$0.10/1K: Flight Tickets",
+  "description": "Flight prices from Google Flights for a route and one or several departure dates: airlines, times, stops, price, and the typical price range of the route. Use numberOfDates with cheapestOnly to find the cheapest day to fly. Pay per result on your Apify account: run start $0.0005, flight delivered $0.0001.",
   "defaults": {
    "maxFlightsPerSearch": 5
   },
@@ -51,7 +51,7 @@
    "type": "object",
    "properties": {
     "routes": {
-     "description": "Origin and destination as 3-letter airport or city codes, e.g. \"CDG-BCN\", \"PAR-LIS\" (all Paris airports), \"LON-NYC\".",
+     "description": "Origin and destination as 3-letter airport or city codes, e.g. \"CDG-BCN\", \"PAR-LIS\" (all Paris airports), \"LON-NYC\". Names of major cities work too: \"Paris-Tokyo\", \"New York to London\". You can also paste a Google Flights search URL (one way or round trip): its dates, passengers and cabin are used as they are.",
      "type": "array",
      "items": {
       "type": "string"
@@ -138,7 +138,7 @@
  {
   "name": "find_ryanair_fares",
   "actor": "euroscrape/ryanair-low-fares",
-  "title": "Ryanair Low Fare Finder: Cheapest Days, Anywhere & Alerts",
+  "title": "Ryanair API & Low Fare Finder: Low Cost Airlines, Cheap Fares",
   "description": "Ryanair fares: the cheapest fare per day for a route (fare calendar), or every destination under a price cap from an airport. Pay per result on your Apify account: run start $0.003, calendar fare $0.0005, destination deal $0.001.",
   "defaults": {
    "months": 1,
@@ -209,7 +209,7 @@
  {
   "name": "search_hotels",
   "actor": "euroscrape/google-hotels-prices",
-  "title": "Google Hotels Scraper (Google Travel): Prices on Booking Sites",
+  "title": "Google Hotels API 💰$2/1K (Google Travel): Rate Parity, Prices",
   "description": "Hotel prices from Google Hotels for a destination or for named hotels and dates: price per night and total, rating, stars. With includeBookingSites, the price of each hotel on every booking site (official site, Booking.com, Expedia...). Pay per result on your Apify account: run start $0.003, hotel price $0.002, booking-site prices $0.003.",
   "defaults": {
    "maxHotelsPerLocation": 10
@@ -298,8 +298,8 @@
  {
   "name": "search_second_hand_europe",
   "actor": "euroscrape/eu-marketplace-deals",
-  "title": "EU Second-Hand Marketplaces Scraper: Vinted, OLX & More",
-  "description": "One search on the biggest second-hand marketplace of up to 18 European countries (Kleinanzeigen, Marktplaats, Subito, Wallapop, OLX, Blocket, FINN...): listings with prices converted to euros, a deal score, and the median price per country. Pay per result on your Apify account: run start $0.003, listing delivered $0.002.",
+  "title": "Second-Hand Marketplace Europe: Used Items, Flipping, Reselling",
+  "description": "One search on the biggest second-hand marketplace of up to 18 European countries (Kleinanzeigen, Marktplaats, Subito, Wallapop, OLX, Blocket, FINN...): listings with prices converted to euros, a deal score, and the median price per country. Pay per result on your Apify account: run start $0.003, listing delivered $0.001.",
   "defaults": {
    "maxItemsPerMarketplace": 10
   },
@@ -367,7 +367,7 @@
  {
   "name": "search_vinted",
   "actor": "euroscrape/vinted-scraper",
-  "title": "Vinted Scraper & Vinted API: 26 Countries, Deals & Alerts",
+  "title": "Vinted Bot, Vinted Sold Prices & Vinted Alerts API | $1/1k",
   "description": "Vinted listings in up to 26 countries: price with buyer fees, brand, size, condition, seller rating, and a cross-country price summary. Pay per result on your Apify account: run start $0.003, item $0.001, item with full details $0.002, sold listing detected $0.002.",
   "defaults": {
    "maxItemsPerSearch": 20
@@ -376,7 +376,7 @@
    "type": "object",
    "properties": {
     "searches": {
-     "description": "What to look for: plain text (\"nike air max 90\"), or a Vinted catalog URL copied from your browser with all your filters (brand, size, category, price…).",
+     "description": "What to look for: plain text (\"nike air max 90\"), a Vinted catalog URL copied from your browser with all your filters (brand, size, category, price…), a seller's profile URL (vinted.fr/member/123456-name) to get every item of that seller's wardrobe, or item URLs (vinted.fr/items/123456-…) to get those exact listings with their current price and whether they are still for sale.",
      "type": "array",
      "items": {
       "type": "string"
@@ -404,11 +404,11 @@
      ]
     },
     "priceMin": {
-     "description": "In the currency of each Vinted site (€, £, zł…).",
+     "description": "Lowest price. With markets of one currency, in that currency (€, £, zł…). When the countries mix currencies (e.g. DE + PL), read in the output currency below (EUR by default) and converted for each market.",
      "type": "integer"
     },
     "priceMax": {
-     "description": "In the currency of each Vinted site.",
+     "description": "Highest price. Same rule as the minimum price: local currency for one-currency searches, the output currency when the countries mix currencies.",
      "type": "integer"
     },
     "conditions": {
@@ -426,7 +426,7 @@
      }
     },
     "brandNames": {
-     "description": "Brand names, e.g. \"Nike\", \"Zara\". Resolved to Vinted's official brand filter.",
+     "description": "Brand names, e.g. \"Nike\", \"Zara\". Resolved to Vinted's official brand filter. Can also be used alone, without a search text, to list a brand's newest items.",
      "type": "array",
      "items": {
       "type": "string"
@@ -439,8 +439,8 @@
  {
   "name": "search_kleinanzeigen",
   "actor": "euroscrape/kleinanzeigen-scraper",
-  "title": "Kleinanzeigen Scraper & Kleinanzeigen API: Deals & Alerts",
-  "description": "Ads from Kleinanzeigen (Germany): price, location, posting time, and a 0-100 deal score against the market price. Pay per result on your Apify account: run start $0.003, ad $0.002, ad with full details $0.004.",
+  "title": "Kleinanzeigen Alerts & API: Autos, Immobilien, Wohnung | $1/1k",
+  "description": "Ads from Kleinanzeigen (Germany): price, location, posting time, and a 0-100 deal score against the market price. Pay per result on your Apify account: run start $0.003, ad $0.001, ad with full details $0.002.",
   "defaults": {
    "maxItems": 20,
    "maxPagesPerSearch": 1
@@ -475,7 +475,7 @@
      "type": "integer"
     },
     "sellerType": {
-     "description": "Applies to keyword searches.",
+     "description": "Applies to keyword searches, and to real-estate search URLs (private landlord or agency is read from each ad card).",
      "type": "string",
      "enum": [
       "any",
@@ -488,7 +488,7 @@
      "type": "integer"
     },
     "maxPagesPerSearch": {
-     "description": "~25 ads per page. Default here: 1.",
+     "description": "About 27 ads per page. Leave empty to read as many pages as needed to fill Max items (up to 50 pages); set it to cap the pages read per search. Default here: 1.",
      "type": "integer"
     }
    },
@@ -498,7 +498,7 @@
  {
   "name": "find_new_companies_without_website",
   "actor": "euroscrape/no-website-leads",
-  "title": "No-Website Leads: New Businesses Without a Website (US, UK, FR)",
+  "title": "No Website Leads Scraper & API: New Businesses Without Website",
   "description": "Companies registered in the last days in the UK, France and five US states (Texas, New York, Colorado, Connecticut, Oregon) that have no website yet, from official registers, with the creation date of their domain name when one exists. Companies only, no director names. Pay per result on your Apify account: run start $0.003, no-website lead $0.005, new company with a website, or undecided $0.002.",
   "defaults": {
    "maxItems": 25
@@ -507,7 +507,7 @@
    "type": "object",
    "properties": {
     "countries": {
-     "description": "Registers to read. With several, leads are taken from each country in turn. United States: five states publish their new companies as open data (New York, Texas, Colorado, Connecticut, Oregon).",
+     "description": "Registers to read. With several, leads are taken from each country in turn. United States: six states publish their new companies as open data (New York, Texas, Pennsylvania, Colorado, Connecticut, Oregon), and Los Angeles, San Francisco, Chicago and Seattle their new business registrations.",
      "type": "array",
      "items": {
       "type": "string",
@@ -523,7 +523,7 @@
      "type": "integer"
     },
     "activityKeywords": {
-     "description": "Keep companies whose activity or name contains one of these, e.g. \"restaurant\", \"plumbing\", \"coiffure\", \"beauty salon\". Several words in one entry must all be present. UK activities are the official SIC descriptions (in English); French activities are written in French; in the US only Connecticut publishes an activity, so the name is what counts for New York, Colorado, Texas and Oregon. Leave empty for every activity.",
+     "description": "Keep companies whose activity or name contains one of these, e.g. \"restaurant\", \"plumbing\", \"coiffure\", \"beauty salon\". Several words in one entry must all be present. UK activities are the official SIC descriptions (in English); French activities are written in French; in the US Connecticut, Los Angeles, San Francisco, Chicago and Seattle publish an activity, so the name is what counts for New York, Colorado, Texas, Pennsylvania and Oregon. Leave empty for every activity.",
      "type": "array",
      "items": {
       "type": "string"
@@ -544,16 +544,21 @@
      }
     },
     "usStates": {
-     "description": "States to read. Leave empty for the five of them. Texas publishes a new company about ten days after its charter date, and Oregon updates its list once a week: set \"Registered in the last N days\" to 21 or more to get all of them.",
+     "description": "States to read. Leave empty for all of them. Los Angeles, San Francisco, Chicago and Seattle are city sources: the businesses they register every day, with the activity. Texas publishes a new company about ten days after its charter date, Oregon updates its list once a week and Pennsylvania about once a month: set \"Registered in the last N days\" to 21 or more (45 or more for Pennsylvania) to get all of them.",
      "type": "array",
      "items": {
       "type": "string",
       "enum": [
        "NY",
+       "TX",
+       "PA",
        "CO",
        "CT",
-       "TX",
-       "OR"
+       "OR",
+       "LA",
+       "SF",
+       "CHI",
+       "SEA"
       ]
      }
     },
@@ -583,9 +588,75 @@
   }
  },
  {
+  "name": "find_local_businesses_without_website",
+  "actor": "euroscrape/google-maps-no-website-leads",
+  "title": "Google Maps No Website Leads: Businesses With No Website $3/1k",
+  "description": "Local businesses on Google Maps with no website of their own (or only a Facebook, Instagram or booking page), for any trade and town: name, phone, address, rating, review count, website status, a lead score and a factual opening line. Domains matching each name are tested, so businesses that do have a site are set aside; in France and the UK the registered company is matched. Only the leads found are charged, never the places read. Pay per result on your Apify account: run start $0.003, no-website lead $0.003, place with a website $0.001.",
+  "defaults": {
+   "maxLeads": 25,
+   "maxPlacesPerSearch": 60
+  },
+  "inputSchema": {
+   "type": "object",
+   "properties": {
+    "searches": {
+     "description": "What you would type in Google Maps: a trade or a kind of shop (plumber, hair salon, restaurant, garage, dentist…). One search per line. Write it in the language of the country for more results (\"plombier\" in France, \"Friseur\" in Germany).",
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "locations": {
+     "description": "Cities, districts or postcodes. Each business type is searched in each location. Google Maps shows about 100 to 120 places per search: for a large city, add its districts or neighbouring towns as separate lines to go deeper.",
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "maxLeads": {
+     "description": "The run stops when this many leads are saved. You pay per lead saved, never for the places that were read and set aside. Default here: 25.",
+     "type": "integer"
+    },
+    "maxPlacesPerSearch": {
+     "description": "How many Google Maps places to read for each business type in each location (20 per page). Reading is free: only the leads are charged. Default here: 60.",
+     "type": "integer"
+    },
+    "radiusKm": {
+     "description": "Keep only the places within this distance of the location: a typed \"lat,lon\" point (\"53.80,-1.55\"), or the location found on OpenStreetMap (a neighbourhood, a street, a town). Places farther away are skipped for free, and each lead gets distanceKm. Places with no address are never judged. Empty = the whole area Google Maps returns.",
+     "type": "number"
+    },
+    "minReviews": {
+     "description": "Keep only businesses with at least this many reviews (an active business with customers). 0 keeps all.",
+     "type": "integer"
+    },
+    "minRating": {
+     "description": "Keep only businesses rated at least this, e.g. \"4\" or \"4.5\" (happy customers, a business worth a good website). Places without any rating are skipped when this is set.",
+     "type": "string"
+    },
+    "onlyWithPhone": {
+     "description": "Skip listings without a phone number.",
+     "type": "boolean"
+    },
+    "onlyUnclaimed": {
+     "description": "Keep only businesses whose Google Business Profile has not been claimed by its owner (Google Maps shows \"Claim this business\"). These owners have never set up their listing: a second thing to offer them besides a website. Skipped places are free.",
+     "type": "boolean"
+    },
+    "language": {
+     "description": "Two-letter language code (en, fr, de, es, it…).",
+     "type": "string"
+    },
+    "countryCode": {
+     "description": "Optional two-letter country code (fr, gb, us, de…): tells Google where to look when a city name exists in several countries. Not needed when the location already names the country.",
+     "type": "string"
+    }
+   },
+   "additionalProperties": false
+  }
+ },
+ {
   "name": "search_uk_companies",
   "actor": "euroscrape/uk-companies",
-  "title": "UK Companies House API & Scraper: UK Company Data & B2B Leads",
+  "title": "Companies House API: UK Business Data, Director Search & PSCs",
   "description": "UK companies from Companies House by SIC code, town or incorporation date: profile, registered office, officers, and optionally website, emails and phones. Pay per result on your Apify account: run start $0.003, company $0.004, website & contacts found $0.025.",
   "defaults": {
    "maxItems": 25
@@ -651,7 +722,7 @@
  {
   "name": "search_french_companies",
   "actor": "euroscrape/france-companies",
-  "title": "French Companies Scraper: SIRENE Leads, Directors & Emails",
+  "title": "French Companies: France API, SIRENE Scraper, SIRET, NAF Code",
   "description": "French companies from the official SIRENE register by activity (NAF code or keyword), department and size: legal data, headquarters, directors, and optionally a verified website with emails and phones. Pay per result on your Apify account: run start $0.003, company $0.004, website & contacts found $0.025.",
   "defaults": {
    "maxItems": 25
@@ -660,7 +731,7 @@
    "type": "object",
    "properties": {
     "query": {
-     "description": "Company name, trade name, director name or address words, e.g. \"boulangerie\", \"plomberie\", \"Dupont\". Optional if you use filters below.",
+     "description": "Company name, trade name, director name or address words, e.g. \"boulangerie\", \"plomberie\", \"Dupont\". It matches names, not activity: to get every company of a trade, use NAF codes or sectors below. Optional if you use filters below.",
      "type": "string"
     },
     "nafCodes": {
@@ -710,7 +781,7 @@
      }
     },
     "createdAfter": {
-     "description": "Company creation date (YYYY-MM-DD).",
+     "description": "Company creation date (YYYY-MM-DD). The official API cannot sort by date, so the Actor scans the matching companies (up to 20,000) to find them: narrow with a department or NAF code for brand-new companies.",
      "type": "string"
     },
     "maxItems": {
@@ -728,8 +799,8 @@
  {
   "name": "validate_eu_vat_numbers",
   "actor": "euroscrape/vat-validator",
-  "title": "EU VAT Number Validator (VIES): Bulk Check, Proof & Alerts",
-  "description": "Checks EU VAT numbers against VIES, the European Commission's registry: valid or not, registered name and address. With requesterVatNumber, each check returns an official consultation number. Pay per result on your Apify account: run start $0.003, vat number checked $0.002.",
+  "title": "VAT Validation API, VIES VAT Check, VAT Lookup: USt-IdNr, EORI",
+  "description": "Checks EU VAT numbers against VIES, the European Commission's registry: valid or not, registered name and address. With requesterVatNumber, each check returns an official consultation number. Pay per result on your Apify account: run start $0.003, vat number checked $0.002, eori number checked $0.002.",
   "defaults": {},
   "inputSchema": {
    "type": "object",
@@ -752,7 +823,7 @@
  {
   "name": "get_company_behind_website",
   "actor": "euroscrape/company-identity",
-  "title": "Impressum & Legal Notice Scraper: VAT, Registry, Contacts",
+  "title": "Company Information API: Impressum Scraper, Legal Notice, VAT",
   "description": "Reads the legal notice or Impressum of European websites and returns the company behind each one: legal name and form, registry numbers, VAT ID, address, emails and phones. Pay per result on your Apify account: run start $0.003, website identified $0.004, google search page $0.004.",
   "defaults": {},
   "inputSchema": {
@@ -776,8 +847,8 @@
  {
   "name": "detect_website_tech_stack",
   "actor": "euroscrape/website-intelligence",
-  "title": "Website Technology Stack Detector: Tech Stack API, CMS & Leads",
-  "description": "Detects the technologies of websites (280+: CMS, e-commerce, analytics, consent tools...) with the company identity from the legal notice and sales signals. Pay per result on your Apify account: run start $0.003, website analyzed $0.02, google search page $0.004.",
+  "title": "Website Analysis, CMS & Technology Detection: Tech Stack Lookup",
+  "description": "Detects the technologies of websites (280+: CMS, e-commerce, analytics, consent tools...) with the company identity from the legal notice and sales signals. Pay per result on your Apify account: run start $0.003, website analyzed $0.004, google search page $0.004.",
   "defaults": {},
   "inputSchema": {
    "type": "object",
@@ -800,7 +871,7 @@
  {
   "name": "search_eu_public_tenders",
   "actor": "euroscrape/eu-public-tenders",
-  "title": "EU Public Tenders Scraper: TED, BOAMP, Awards & Tender Alerts",
+  "title": "EU & UK Public Tenders: TED, BOAMP API, Find a Tender & Awards",
   "description": "Public tenders and contract awards in Europe (TED) and France (BOAMP, DECP) by keyword, CPV code and country: buyer, value in euros, deadline; for awards, the winner, the amount and the number of bids. Pay per result on your Apify account: run start $0.003, open tender delivered $0.003, contract award delivered $0.005.",
   "defaults": {
    "maxItems": 25
@@ -920,7 +991,7 @@
  {
   "name": "get_france_property_sales",
   "actor": "euroscrape/france-property-prices",
-  "title": "France Real Estate Sold Prices (DVF): €/m², Sales & Trends",
+  "title": "DVF Scraper France: Real Estate Comps, Comparable Sales, Prices",
   "description": "Real property sales in France (official DVF data) for a city or postal code: price paid, price per m2, surface, rooms, date, with the energy class of the home when known and a median price summary. Pay per result on your Apify account: run start $0.003, property sale $0.0005.",
   "defaults": {
    "maxSalesPerLocation": 50
@@ -936,7 +1007,7 @@
      }
     },
     "years": {
-     "description": "Sale years to load, between 2021 and 2025 (the State publishes DVF data with a few months of delay, in April and October).",
+     "description": "Sale years to load, between 2021 and 2026 (2021 = July to December, 2026 = January to June: the State's October 2026 release covers July 2021 to June 2026; DVF is published with a few months of delay, in April and October).",
      "type": "array",
      "items": {
       "type": "integer"
@@ -983,7 +1054,7 @@
  {
   "name": "get_france_energy_ratings",
   "actor": "euroscrape/france-energy-ratings",
-  "title": "France Energy Ratings (DPE): Homes, Energy Certificates, Sieves",
+  "title": "DPE Scraper & API: Energy Performance Certificates, Ratings",
   "description": "Energy performance certificates (DPE, ADEME open data) of homes in a French city or postal code: energy and CO2 class, surface, consumption, estimated yearly bill. Pay per result on your Apify account: run start $0.003, energy rating $0.001.",
   "defaults": {
    "maxRatingsPerLocation": 25
@@ -1034,7 +1105,7 @@
  {
   "name": "get_france_building_permits",
   "actor": "euroscrape/france-building-permits",
-  "title": "France Building Permits (Sitadel): Projects, Builders & Alerts",
+  "title": "Building Permits France: Sitadel, Property Developers, API",
   "description": "Building permits in a French city or department (official Sitadel register): project, dwellings, floor area, status, and the applicant company with its SIREN. Pay per result on your Apify account: run start $0.003, building permit $0.003.",
   "defaults": {
    "maxPermitsPerLocation": 25
@@ -1098,7 +1169,7 @@
  {
   "name": "get_france_fuel_prices",
   "actor": "euroscrape/france-fuel-prices",
-  "title": "France Fuel Prices: Gas Station Prices, Diesel Prices & Alerts",
+  "title": "Fuel Prices France API: Diesel Prices, Gas Station Prices, E10",
   "description": "Live official fuel prices of the stations around a French city, postal code or GPS point, cheapest first, with the local spread. Pay per result on your Apify account: run start $0.003, station $0.001.",
   "defaults": {
    "maxStationsPerLocation": 15
@@ -1107,7 +1178,7 @@
    "type": "object",
    "properties": {
     "locations": {
-     "description": "French cities (\"Grenoble\"), postal codes (\"38000\") or GPS points (\"45.19,5.72\").",
+     "description": "French cities (\"Grenoble\"), postal codes (\"38000\"), street addresses (\"12 rue de la République, Lyon\", measured from that exact point) or GPS points (\"45.19,5.72\").",
      "type": "array",
      "items": {
       "type": "string"
@@ -1143,8 +1214,8 @@
  {
   "name": "get_app_reviews",
   "actor": "euroscrape/app-reviews",
-  "title": "App Store Reviews Scraper + Google Play Reviews (All Countries)",
-  "description": "App Store and Google Play reviews of an app in the countries you choose: rating, text, version, date, developer reply, and a summary by version and country. Pay per result on your Apify account: run start $0.003, review delivered $0.0002.",
+  "title": "App Feedback & Reviews: App Sentiment & App Store Optimization",
+  "description": "App Store and Google Play reviews of an app in the countries you choose: rating, text, version, date, developer reply, and a summary by version and country. Pay per result on your Apify account: run start $0.003, review delivered $0.0001.",
   "defaults": {
    "maxReviewsPerCountry": 25
   },
@@ -1166,7 +1237,7 @@
      }
     },
     "countries": {
-     "description": "Reviews differ per country: each country is a separate storefront.",
+     "description": "Reviews differ per country: each country is a separate storefront. All 175 App Store storefronts are listed; Google Play uses the same codes.",
      "type": "array",
      "items": {
       "type": "string",
@@ -1228,7 +1299,124 @@
        "id",
        "ee",
        "lv",
-       "lt"
+       "lt",
+       "al",
+       "ba",
+       "by",
+       "cy",
+       "is",
+       "xk",
+       "mt",
+       "md",
+       "me",
+       "mk",
+       "ru",
+       "af",
+       "dz",
+       "ao",
+       "am",
+       "az",
+       "bh",
+       "bj",
+       "bw",
+       "bf",
+       "cm",
+       "cv",
+       "td",
+       "cd",
+       "cg",
+       "ci",
+       "ga",
+       "gm",
+       "ge",
+       "gh",
+       "gw",
+       "iq",
+       "jo",
+       "ke",
+       "kw",
+       "lb",
+       "lr",
+       "ly",
+       "mg",
+       "mw",
+       "ml",
+       "mr",
+       "mu",
+       "ma",
+       "mz",
+       "na",
+       "ne",
+       "om",
+       "qa",
+       "rw",
+       "st",
+       "sn",
+       "sc",
+       "sl",
+       "sz",
+       "tz",
+       "tn",
+       "ug",
+       "ye",
+       "zm",
+       "zw",
+       "bd",
+       "bt",
+       "bn",
+       "kh",
+       "cn",
+       "fj",
+       "kz",
+       "kg",
+       "la",
+       "mo",
+       "mv",
+       "fm",
+       "mn",
+       "mm",
+       "nr",
+       "np",
+       "pk",
+       "pg",
+       "sb",
+       "lk",
+       "tj",
+       "to",
+       "tm",
+       "uz",
+       "vu",
+       "ai",
+       "ag",
+       "bs",
+       "bb",
+       "bz",
+       "bm",
+       "bo",
+       "vg",
+       "ky",
+       "cr",
+       "dm",
+       "do",
+       "ec",
+       "sv",
+       "gd",
+       "gt",
+       "gy",
+       "hn",
+       "jm",
+       "ms",
+       "ni",
+       "pa",
+       "py",
+       "kn",
+       "lc",
+       "vc",
+       "sr",
+       "tt",
+       "tc",
+       "uy",
+       "ve"
       ]
      }
     },
@@ -1255,7 +1443,7 @@
  {
   "name": "search_trusted_shops",
   "actor": "euroscrape/trusted-shops-scraper",
-  "title": "Trusted Shops Scraper: Shop Leads, Ratings, Reviews & Alerts",
+  "title": "Trusted Shops Reviews API & Ecommerce Store Leads, Avis Clients",
   "description": "Online shops listed on Trusted Shops by keyword and country (company, contact, rating, review volume), or the latest customer reviews of a given shop. Pay per result on your Apify account: run start $0.003, shop $0.002, company profile $0.004, review $0.0006.",
   "defaults": {
    "maxShopsPerSearch": 15

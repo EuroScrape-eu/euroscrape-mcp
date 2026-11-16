@@ -3,7 +3,7 @@
   "name": "io.github.EuroScrape-eu/euroscrape-mcp",
   "title": "EuroScrape",
   "description": "European data tools for agents: flight, hotel, power prices, marketplaces, companies, open data.",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "repository": {
     "url": "https://github.com/EuroScrape-eu/euroscrape-mcp",
     "source": "github"
@@ -12,9 +12,9 @@
   "packages": [
     {
       "registryType": "mcpb",
-      "identifier": "https://github.com/EuroScrape-eu/euroscrape-mcp/releases/download/v0.1.2/euroscrape-mcp.mcpb",
-      "version": "0.1.2",
-      "fileSha256": "4e08abf544f72658fe600548535b5031a70b0374452d50fc461a303d32d30628",
+      "identifier": "https://github.com/EuroScrape-eu/euroscrape-mcp/releases/download/v0.1.3/euroscrape-mcp.mcpb",
+      "version": "0.1.3",
+      "fileSha256": "70a793bdd7a2cde95a4139bc52bf68f028a75600a5731714488d14634a9c32e8",
       "transport": {
         "type": "stdio"
       },

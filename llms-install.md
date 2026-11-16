@@ -29,7 +29,7 @@ Optional environment variables: `EUROSCRAPE_MAX_USD_PER_CALL` (spending cap of o
 
 ## Check that it works
 
-1. The server should list 21 tools (`get_electricity_prices`, `search_flights`, ... , `get_run_results`). Listing tools does not need a valid token.
+1. The server should list 22 tools (`get_electricity_prices`, `search_flights`, ... , `get_run_results`). Listing tools does not need a valid token.
 2. A cheap real call: `get_electricity_prices` with `{"zones": ["FR"]}`. It costs about $0.01 on the user's Apify account and returns today's hourly prices with a day summary.
 
 ## Troubleshooting

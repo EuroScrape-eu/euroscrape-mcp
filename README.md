@@ -1,6 +1,6 @@
 # EuroScrape MCP server
 
-Twenty data tools for AI agents: flight, hotel and electricity prices, second-hand marketplaces, company data and leads, EU and French open data. Each tool runs one of the [EuroScrape Actors](https://apify.com/euroscrape) on Apify and returns structured JSON.
+Twenty-one data tools for AI agents: flight, hotel and electricity prices, second-hand marketplaces, company data and leads, EU and French open data. Each tool runs one of the [EuroScrape Actors](https://apify.com/euroscrape) on Apify and returns structured JSON.
 
 Works with Claude Desktop, Claude Code, Cursor, VS Code and any MCP client.
 
@@ -50,6 +50,7 @@ claude mcp add --env APIFY_TOKEN=YOUR_APIFY_TOKEN euroscrape -- npx -y github:Eu
 | `search_vinted` | Vinted listings in up to 26 countries, prices with buyer fees | [vinted-scraper](https://apify.com/euroscrape/vinted-scraper) |
 | `search_kleinanzeigen` | Kleinanzeigen ads with a deal score against the market price | [kleinanzeigen-scraper](https://apify.com/euroscrape/kleinanzeigen-scraper) |
 | `find_new_companies_without_website` | Newly registered companies (UK, France, five US states) with no website yet | [no-website-leads](https://apify.com/euroscrape/no-website-leads) |
+| `find_local_businesses_without_website` | Local businesses on Google Maps with no website of their own, for any trade and town, with phone, rating and a lead score | [google-maps-no-website-leads](https://apify.com/euroscrape/google-maps-no-website-leads) |
 | `search_uk_companies` | Companies House data by SIC code, town or incorporation date | [uk-companies](https://apify.com/euroscrape/uk-companies) |
 | `search_french_companies` | SIRENE data by activity, department and size | [france-companies](https://apify.com/euroscrape/france-companies) |
 | `validate_eu_vat_numbers` | VIES check of EU VAT numbers, with an official consultation number | [vat-validator](https://apify.com/euroscrape/vat-validator) |

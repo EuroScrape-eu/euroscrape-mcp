@@ -12,7 +12,7 @@ const client = new Client({ name: 'euroscrape-check', version: '0.0.0' });
 await client.connect(transport);
 
 const { tools } = await client.listTools();
-assert.equal(tools.length, 21, 'twenty Actor tools and get_run_results');
+assert.equal(tools.length, 22, 'twenty-one Actor tools and get_run_results');
 for (const tool of tools) {
     assert.match(tool.name, /^[a-z_]+$/);
     assert.ok(tool.description.length > 40, `${tool.name} has a description`);

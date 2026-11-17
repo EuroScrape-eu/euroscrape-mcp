@@ -1,5 +1,7 @@
 # EuroScrape MCP server
 
+![EuroScrape MCP server](.github/social-preview.png)
+
 Twenty-one data tools for AI agents: flight, hotel and electricity prices, second-hand marketplaces, company data and leads, EU and French open data. Each tool runs one of the [EuroScrape Actors](https://apify.com/euroscrape) on Apify and returns structured JSON.
 
 Works with Claude Desktop, Claude Code, Cursor, VS Code and any MCP client.

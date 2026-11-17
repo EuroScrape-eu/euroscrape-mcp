@@ -10,7 +10,7 @@ Works with Claude Desktop, Claude Code, Cursor, VS Code and any MCP client.
 
 ## Install
 
-You need an Apify API token ([Apify Console → Settings → API & Integrations](https://console.apify.com/settings/integrations)). Apify's free plan includes 5 USD of usage per month.
+You need an Apify account ([create one free](https://apify.com/sign-up?fpr=53ztcw)) and its API token ([Apify Console → Settings → API & Integrations](https://console.apify.com/settings/integrations)). Apify's free plan includes 5 USD of usage per month. (Links to Apify in this README carry our affiliate code: if you later take a paid Apify plan, Apify may pay EuroScrape a commission, at no cost to you.)
 
 ### Claude Desktop, in one click
 

@@ -5,7 +5,7 @@ This server runs locally over stdio with Node.js. It needs one secret: an Apify 
 ## Requirements
 
 - Node.js 18 or later (`node --version`).
-- An Apify API token. If the user does not have one, ask them to create a free account at https://apify.com and copy the token from Apify Console → Settings → API & Integrations (https://console.apify.com/settings/integrations). Never invent a token.
+- An Apify API token. If the user does not have one, ask them to create a free account at https://apify.com/sign-up?fpr=53ztcw and copy the token from Apify Console → Settings → API & Integrations (https://console.apify.com/settings/integrations). Never invent a token.
 
 ## Configuration
 

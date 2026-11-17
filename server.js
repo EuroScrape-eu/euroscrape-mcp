@@ -24,9 +24,14 @@ const RESULTS_TOOL = {
     inputSchema: { type: 'object', properties: { runId: { type: 'string', description: 'The runId returned by a previous tool call.' } }, required: ['runId'], additionalProperties: false },
 };
 
+// Links to Apify carry EuroScrape's Apify affiliate code (fpr=53ztcw): Apify may pay EuroScrape a commission on a paid
+// plan, at no cost to the user (disclosed in README.md).
+const SIGN_UP = 'https://apify.com/sign-up?fpr=53ztcw';
+const PLANS = 'https://apify.com/pricing?fpr=53ztcw';
+
 async function api(method, path, body) {
     const token = process.env.APIFY_TOKEN;
-    if (!token) throw new Error('APIFY_TOKEN is not set. Create a token in Apify Console > Settings > API & Integrations and pass it to this server as the APIFY_TOKEN environment variable.');
+    if (!token) throw new Error('APIFY_TOKEN is not set. Create a token in Apify Console > Settings > API & Integrations and pass it to this server as the APIFY_TOKEN environment variable. No Apify account yet? Create one free (5 USD of usage included every month): ' + SIGN_UP);
     const response = await fetch(API + path, {
         method,
         headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
@@ -35,7 +40,12 @@ async function api(method, path, body) {
     const text = await response.text();
     let json;
     try { json = JSON.parse(text); } catch { json = null; }
-    if (!response.ok) throw new Error(`Apify API ${response.status}: ${json?.error?.message ?? text.slice(0, 300)}`);
+    if (!response.ok) {
+        const message = json?.error?.message ?? text.slice(0, 300);
+        // 402 or a usage / credit message: the account's monthly limit is reached, say where the plans are
+        const plans = response.status === 402 || /usage|credit|limit|plan/i.test(message) ? ` If your Apify plan's monthly usage is used up, plans are listed at ${PLANS}` : '';
+        throw new Error(`Apify API ${response.status}: ${message}${plans}`);
+    }
     return { json, total: Number(response.headers.get('x-apify-pagination-total')) };
 }
 

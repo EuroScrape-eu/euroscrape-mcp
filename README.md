@@ -44,27 +44,27 @@ claude mcp add --env APIFY_TOKEN=YOUR_APIFY_TOKEN euroscrape -- npx -y github:Eu
 
 | Tool | What it returns | Actor |
 |---|---|---|
-| `get_electricity_prices` | Day-ahead electricity prices for 40+ European bidding zones, with the cheapest window of each day | [eu-electricity-prices](https://apify.com/euroscrape/eu-electricity-prices) |
-| `search_flights` | Google Flights prices for a route and dates, cheapest day to fly, typical price range | [google-flights-prices](https://apify.com/euroscrape/google-flights-prices) |
-| `find_ryanair_fares` | Ryanair fare calendar of a route, or every destination under a price cap from an airport | [ryanair-low-fares](https://apify.com/euroscrape/ryanair-low-fares) |
-| `search_hotels` | Google Hotels prices, optionally on every booking site | [google-hotels-prices](https://apify.com/euroscrape/google-hotels-prices) |
-| `search_second_hand_europe` | One search on the top second-hand marketplace of 18 countries, prices in euros, median per country | [eu-marketplace-deals](https://apify.com/euroscrape/eu-marketplace-deals) |
-| `search_vinted` | Vinted listings in up to 26 countries, prices with buyer fees | [vinted-scraper](https://apify.com/euroscrape/vinted-scraper) |
-| `search_kleinanzeigen` | Kleinanzeigen ads with a deal score against the market price | [kleinanzeigen-scraper](https://apify.com/euroscrape/kleinanzeigen-scraper) |
-| `find_new_companies_without_website` | Newly registered companies (UK, France, five US states) with no website yet | [no-website-leads](https://apify.com/euroscrape/no-website-leads) |
-| `find_local_businesses_without_website` | Local businesses on Google Maps with no website of their own, for any trade and town, with phone, rating and a lead score | [google-maps-no-website-leads](https://apify.com/euroscrape/google-maps-no-website-leads) |
-| `search_uk_companies` | Companies House data by SIC code, town or incorporation date | [uk-companies](https://apify.com/euroscrape/uk-companies) |
-| `search_french_companies` | SIRENE data by activity, department and size | [france-companies](https://apify.com/euroscrape/france-companies) |
-| `validate_eu_vat_numbers` | VIES check of EU VAT numbers, with an official consultation number | [vat-validator](https://apify.com/euroscrape/vat-validator) |
-| `get_company_behind_website` | The legal entity behind a European website, from its legal notice | [company-identity](https://apify.com/euroscrape/company-identity) |
-| `detect_website_tech_stack` | Technologies used by a website (280+), with sales signals | [website-intelligence](https://apify.com/euroscrape/website-intelligence) |
-| `search_eu_public_tenders` | Open tenders and contract awards in Europe and France | [eu-public-tenders](https://apify.com/euroscrape/eu-public-tenders) |
-| `get_france_property_sales` | Real property sales in France (DVF), price per m2, energy class | [france-property-prices](https://apify.com/euroscrape/france-property-prices) |
-| `get_france_energy_ratings` | Energy performance certificates of French homes (DPE) | [france-energy-ratings](https://apify.com/euroscrape/france-energy-ratings) |
-| `get_france_building_permits` | Building permits in France (Sitadel), with the applicant company | [france-building-permits](https://apify.com/euroscrape/france-building-permits) |
-| `get_france_fuel_prices` | Live fuel prices of the stations around a French city | [france-fuel-prices](https://apify.com/euroscrape/france-fuel-prices) |
-| `get_app_reviews` | App Store and Google Play reviews by country | [app-reviews](https://apify.com/euroscrape/app-reviews) |
-| `search_trusted_shops` | Online shops listed on Trusted Shops, or the reviews of a shop | [trusted-shops-scraper](https://apify.com/euroscrape/trusted-shops-scraper) |
+| `get_electricity_prices` | Day-ahead electricity prices for 40+ European bidding zones, with the cheapest window of each day | [eu-electricity-prices](https://apify.com/euroscrape/eu-electricity-prices?fpr=53ztcw) |
+| `search_flights` | Google Flights prices for a route and dates, cheapest day to fly, typical price range | [google-flights-prices](https://apify.com/euroscrape/google-flights-prices?fpr=53ztcw) |
+| `find_ryanair_fares` | Ryanair fare calendar of a route, or every destination under a price cap from an airport | [ryanair-low-fares](https://apify.com/euroscrape/ryanair-low-fares?fpr=53ztcw) |
+| `search_hotels` | Google Hotels prices, optionally on every booking site | [google-hotels-prices](https://apify.com/euroscrape/google-hotels-prices?fpr=53ztcw) |
+| `search_second_hand_europe` | One search on the top second-hand marketplace of 18 countries, prices in euros, median per country | [eu-marketplace-deals](https://apify.com/euroscrape/eu-marketplace-deals?fpr=53ztcw) |
+| `search_vinted` | Vinted listings in up to 26 countries, prices with buyer fees | [vinted-scraper](https://apify.com/euroscrape/vinted-scraper?fpr=53ztcw) |
+| `search_kleinanzeigen` | Kleinanzeigen ads with a deal score against the market price | [kleinanzeigen-scraper](https://apify.com/euroscrape/kleinanzeigen-scraper?fpr=53ztcw) |
+| `find_new_companies_without_website` | Newly registered companies (UK, France, five US states) with no website yet | [no-website-leads](https://apify.com/euroscrape/no-website-leads?fpr=53ztcw) |
+| `find_local_businesses_without_website` | Local businesses on Google Maps with no website of their own, for any trade and town, with phone, rating and a lead score | [google-maps-no-website-leads](https://apify.com/euroscrape/google-maps-no-website-leads?fpr=53ztcw) |
+| `search_uk_companies` | Companies House data by SIC code, town or incorporation date | [uk-companies](https://apify.com/euroscrape/uk-companies?fpr=53ztcw) |
+| `search_french_companies` | SIRENE data by activity, department and size | [france-companies](https://apify.com/euroscrape/france-companies?fpr=53ztcw) |
+| `validate_eu_vat_numbers` | VIES check of EU VAT numbers, with an official consultation number | [vat-validator](https://apify.com/euroscrape/vat-validator?fpr=53ztcw) |
+| `get_company_behind_website` | The legal entity behind a European website, from its legal notice | [company-identity](https://apify.com/euroscrape/company-identity?fpr=53ztcw) |
+| `detect_website_tech_stack` | Technologies used by a website (280+), with sales signals | [website-intelligence](https://apify.com/euroscrape/website-intelligence?fpr=53ztcw) |
+| `search_eu_public_tenders` | Open tenders and contract awards in Europe and France | [eu-public-tenders](https://apify.com/euroscrape/eu-public-tenders?fpr=53ztcw) |
+| `get_france_property_sales` | Real property sales in France (DVF), price per m2, energy class | [france-property-prices](https://apify.com/euroscrape/france-property-prices?fpr=53ztcw) |
+| `get_france_energy_ratings` | Energy performance certificates of French homes (DPE) | [france-energy-ratings](https://apify.com/euroscrape/france-energy-ratings?fpr=53ztcw) |
+| `get_france_building_permits` | Building permits in France (Sitadel), with the applicant company | [france-building-permits](https://apify.com/euroscrape/france-building-permits?fpr=53ztcw) |
+| `get_france_fuel_prices` | Live fuel prices of the stations around a French city | [france-fuel-prices](https://apify.com/euroscrape/france-fuel-prices?fpr=53ztcw) |
+| `get_app_reviews` | App Store and Google Play reviews by country | [app-reviews](https://apify.com/euroscrape/app-reviews?fpr=53ztcw) |
+| `search_trusted_shops` | Online shops listed on Trusted Shops, or the reviews of a shop | [trusted-shops-scraper](https://apify.com/euroscrape/trusted-shops-scraper?fpr=53ztcw) |
 | `get_run_results` | The results of a call that was still running when it returned (free) | |
 
 Every tool description states its price. The full list of parameters is in [`tools.json`](tools.json).

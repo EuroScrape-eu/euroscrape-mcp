@@ -42,7 +42,7 @@
  {
   "name": "search_flights",
   "actor": "euroscrape/google-flights-prices",
-  "title": "Google Flights Search & Deals API 💰$0.10/1K: Flight Tickets",
+  "title": "Flight Fares API: Google Flights Search & Deals 💰$0.10/1K",
   "description": "Flight prices from Google Flights for a route and one or several departure dates: airlines, times, stops, price, and the typical price range of the route. Use numberOfDates with cheapestOnly to find the cheapest day to fly. Pay per result on your Apify account: run start $0.0005, flight delivered $0.0001.",
   "defaults": {
    "maxFlightsPerSearch": 5
@@ -138,7 +138,7 @@
  {
   "name": "find_ryanair_fares",
   "actor": "euroscrape/ryanair-low-fares",
-  "title": "Ryanair API & Low Fare Finder: Low Cost Airlines, Cheap Fares",
+  "title": "Ryanair API & Scraper: Low Cost Airlines, Cheap Fares",
   "description": "Ryanair fares: the cheapest fare per day for a route (fare calendar), or every destination under a price cap from an airport. Pay per result on your Apify account: run start $0.003, calendar fare $0.0005, destination deal $0.001.",
   "defaults": {
    "months": 1,
@@ -209,7 +209,7 @@
  {
   "name": "search_hotels",
   "actor": "euroscrape/google-hotels-prices",
-  "title": "Google Hotels API 💰$2/1K (Google Travel): Rate Parity, Prices",
+  "title": "Google Hotels API 💰$2/1K: Hotel Competitor Rates & Rates Data",
   "description": "Hotel prices from Google Hotels for a destination or for named hotels and dates: price per night and total, rating, stars. With includeBookingSites, the price of each hotel on every booking site (official site, Booking.com, Expedia...). Pay per result on your Apify account: run start $0.003, hotel price $0.002, booking-site prices $0.003.",
   "defaults": {
    "maxHotelsPerLocation": 10
@@ -791,6 +791,78 @@
     "findContacts": {
      "description": "For each company, find its website and VERIFY it (the SIREN must appear on the site's legal notice), then extract emails, phones and social links. Billed only when a website is found.",
      "type": "boolean"
+    }
+   },
+   "additionalProperties": false
+  }
+ },
+ {
+  "name": "get_french_company_signals",
+  "actor": "euroscrape/france-company-signals",
+  "title": "French Company Signals: New Companies, Insolvencies, Contracts",
+  "description": "Weekly sales signals on French companies from official notices: newly registered companies and insolvencies (BODACC), public contracts won and their winners (BOAMP), each matched to its SIREN with sector, headcount and headquarters. Filter by department, NAF code or keyword; with monitorName and a schedule, each run returns only new signals. Pay per result on your Apify account: run start $0.003, signal $0.005, website & contacts found $0.025.",
+  "defaults": {
+   "maxItems": 25
+  },
+  "inputSchema": {
+   "type": "object",
+   "properties": {
+    "signals": {
+     "description": "Which signals to collect. new_companies = companies just registered (BODACC). insolvencies = safeguard, receivership, liquidation (BODACC). public_contract_wins = public contracts awarded and their winners (BOAMP).",
+     "type": "array",
+     "items": {
+      "type": "string",
+      "enum": [
+       "new_companies",
+       "insolvencies",
+       "public_contract_wins"
+      ]
+     }
+    },
+    "daysBack": {
+     "description": "Notices published in the last N days (1 to 365). With a weekly schedule, 7.",
+     "type": "integer"
+    },
+    "departments": {
+     "description": "French département codes, e.g. 75 (Paris), 69 (Lyon), 13 (Marseille), 33, 31, 2A. Empty = all of France.",
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "keywords": {
+     "description": "Words searched in the declared activity (new companies) and in the contract title (contract wins), in French: logiciel, restaurant, transport, nettoyage, conseil… Empty = no filter.",
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "nafCodes": {
+     "description": "Keep only companies whose NAF code starts with one of these: 62 (software and IT), 62.01Z, 43 (construction trades), 56.10A (restaurants). Needs registry matching.",
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "minContractAmountEur": {
+     "description": "Contract wins only: skip notices whose stated amount is below this. 0 = no limit.",
+     "type": "integer"
+    },
+    "excludeRealEstateHoldings": {
+     "description": "Skip family real-estate holding companies (sociétés civiles immobilières, land groups), about a third of new registrations, rarely a buyer.",
+     "type": "boolean"
+    },
+    "findContacts": {
+     "description": "Look up the company website and its public emails and phones. Charged only when a website is found.",
+     "type": "boolean"
+    },
+    "maxItems": {
+     "description": "Maximum number of signals in the dataset. Signal types share it in turn. Default here: 25.",
+     "type": "integer"
+    },
+    "monitorName": {
+     "description": "Give a name and schedule the Actor (e.g. weekly): each run then returns only signals not seen in previous runs with the same name.",
+     "type": "string"
     }
    },
    "additionalProperties": false

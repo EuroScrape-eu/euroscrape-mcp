@@ -2,7 +2,7 @@
   "manifest_version": "0.3",
   "name": "euroscrape-mcp",
   "display_name": "EuroScrape",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "European data tools for AI agents: flight, hotel and electricity prices, second-hand marketplaces, company data and leads, EU and French open data.",
   "long_description": "European data tools for AI agents: flight, hotel and electricity prices, second-hand marketplaces, company data and leads, EU and French open data. Each tool runs one of the EuroScrape Actors on your own Apify account and returns structured JSON: you pay Apify per result, at the price stated in each tool description, with a spending cap on every call (0.50 USD by default). Apify's free plan includes 5 USD of usage per month.",
   "author": {
@@ -75,6 +75,10 @@
     {
       "name": "search_french_companies",
       "description": "French companies from the official SIRENE register by activity (NAF code or keyword), department and size: legal data, headquarters, directors, and optionally a verified website with emails and phones."
+    },
+    {
+      "name": "get_french_company_signals",
+      "description": "Weekly sales signals on French companies from official notices: newly registered companies and insolvencies (BODACC), public contracts won and their winners (BOAMP), each matched to its SIREN with sector, headcount and headquarters. Filter by department, NAF code or keyword; with monitorName and…"
     },
     {
       "name": "validate_eu_vat_numbers",
